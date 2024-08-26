@@ -51,4 +51,41 @@ function table(int) {
 }
 
 //5. Write a function called "table9to9" that prints out the multiplication table:
-function table9to9() {}
+function table9to9() {
+  let result = "";
+  for (let i = 1; i <= 9; i++) {
+    for (let k = 1; k <= 9; k++) {
+      result += i + "x" + k + "=" + k * i;
+      result += "\n";
+    }
+  }
+  console.log(result);
+}
+
+//6. 1. Write a function called "fib" that takes an integer $n$ as input
+//   , and returns the $n$th element of the Fibonacci Sequence.
+//   If you never hear about Fibonacci Sequence, read about it from:
+function fib(n) {
+  // if (n == 0) {
+  //   return 0;
+  // } else if (n == 1) {
+  //   return 1;
+  // } else {
+  //   return fib(n - 1) + fib(n - 2);
+  // }
+  // ----上式時間複雜度太高----
+  let arr = [0, 1];
+  let i = 0;
+  while (arr.length <= n) {
+    arr.push(arr[i] + arr[i + 1]); //每push一次array就加一項
+    i++;
+  }
+  console.log(arr);
+  console.log(arr[n]);
+}
+fib(3);
+// for (let i = 0; i < 10; i++) {
+//   console.log(fib(i));
+// }
+
+//7. Write a function called "reverse" that takes a string as input, and returns the reverse string.
