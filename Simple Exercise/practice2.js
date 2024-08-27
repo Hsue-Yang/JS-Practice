@@ -83,9 +83,59 @@ function fib(n) {
   console.log(arr);
   console.log(arr[n]);
 }
-fib(3);
 // for (let i = 0; i < 10; i++) {
 //   console.log(fib(i));
 // }
 
 //7. Write a function called "reverse" that takes a string as input, and returns the reverse string.
+function reverse(str) {
+  let result = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i];
+  }
+  console.log(result);
+}
+
+//8. Write a function called "swap" that takes a string as input
+//   , and returns a new string with lowercase changed to uppercase, uppercase changed to lowercase.
+function swap(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == str[i].toUpperCase()) {
+      result += str[i].toLowerCase();
+    } else {
+      result += str[i].toUpperCase();
+    }
+  }
+  console.log(result);
+}
+
+//9. Write a function called "findMin" which takes an array as input
+//   , and returns the minimum element in the input array.
+function findMin(arr) {
+  let min = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (min > arr[i]) {
+      min = arr[i];
+    }
+  }
+  console.log(min);
+}
+
+//10. Write a function called "findNthMin", which takes an array of integers and another integer n
+//    , and returns the nth smallest number in the given array.
+//  利用i,j遍歷array，設i為底數、j往後跑者，當arr[i]<arr[j]時，counter++去確認arr[i]比全部的數字是第幾小
+function findNthMin(arr, n) {
+  for (let i = 0; i < arr.length; i++) {
+    let counter = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] < arr[i]) {
+        counter++; //如counter=2時，有兩個數比它小代表它是第三小
+      }
+      if (counter == n - 1) {
+        return arr[i];
+      }
+    }
+  }
+}
+console.log(findNthMin([1, 3, 5, 7, 9], 3));
